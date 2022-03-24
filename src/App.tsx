@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Button from '@mui/material/Button'
-import example from './Example';
-import Example from "./Example";
+import Calculator from "./components/Calculator";
 
 function App() {
     const createDigits = () => {
@@ -55,28 +54,16 @@ function App() {
             setCalc("");
             setResult('0');
         }
-
   return (
     <div className="App">
-      <div className="calculator">
-          <div className="display">
-              { result ? <span>{result}</span>: ''} {calc || "0"}
-          </div>
-        <div className="keypad">
-        <div className="operators">
-            <Button variant={"contained"} color="success" onClick={() => updateCalc('+')}>+</Button>
-            <Button variant={"contained"} color="success"  onClick={() => updateCalc('-')}>-</Button>
-
-            <Button variant="contained" color="success" onClick={() => clear()}>C</Button>
-        </div>
-
-          <div className="digits">
-              { createDigits() }
-              <Button variant={"contained"} onClick={() => calculate()}>=</Button>
-          </div>
-
-      </div>
-      </div>
+    <Calculator
+        result={result}
+        calc={calc}
+        operators={ops}
+        updateCalc={updateCalc}
+        clear={clear}
+        createDigits={createDigits}
+        calculate={calculate}/>
     </div>
   );
 }
