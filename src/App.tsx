@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Button from '@mui/material/Button'
 import Calculator from "./components/Calculator";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import ResultPage from "./components/ResultPage";
 
 function App() {
     const createDigits = () => {
@@ -56,15 +58,22 @@ function App() {
         }
   return (
     <div className="App">
-    <Calculator
-        result={result}
-        calc={calc}
-        operators={ops}
-        updateCalc={updateCalc}
-        clear={clear}
-        createDigits={createDigits}
-        calculate={calculate}/>
+        <BrowserRouter>
+        <Routes>
+            <Route path={"/"} element={<Calculator
+                result={result}
+                calc={calc}
+                operators={ops}
+                updateCalc={updateCalc}
+                clear={clear}
+                createDigits={createDigits}
+                calculate={calculate}/>}/>
+
+            <Route path={"/result/:result"} element={<ResultPage />}/>
+        </Routes>
+        </BrowserRouter>
     </div>
+
   );
 }
 

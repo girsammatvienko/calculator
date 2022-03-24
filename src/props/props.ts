@@ -9,6 +9,11 @@ interface KeypadProps {
     clear: () => void;
     createDigits: () => JSX.Element[];
     calculate: () => void;
+    result: string
+}
+
+interface ResultProps {
+    calc: string
 }
 
 interface OperatorsProps {
@@ -19,6 +24,7 @@ interface OperatorsProps {
 interface DigitsProps {
     createDigits: () => JSX.Element[],
     calculate: () => void;
+    result: string
 }
 
 interface CalculatorProps {
@@ -36,5 +42,6 @@ export type {
     CalculatorProps,
     KeypadProps,
     OperatorsProps,
-    DigitsProps
+    DigitsProps,
+    ResultProps
 };
