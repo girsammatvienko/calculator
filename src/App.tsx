@@ -1,20 +1,30 @@
 import React, {useState} from 'react';
-
-
+import Button from '@mui/material/Button'
+import example from './Example';
+import Example from "./Example";
 
 function App() {
     const createDigits = () => {
         const digits = [];
 
-        for(let i = 0;i < 10;i++) {
+        for(let i = 1;i < 10;i++) {
             digits.push(
-                <button
+                <Button
+                    variant={"contained"}
                     onClick={() => updateCalc(i.toString())}
                     key={i}>
                     {i}
-                </button>
+                </Button>
             )
         }
+        digits.push(
+            <Button
+                variant={"contained"}
+                onClick={() => updateCalc('0')}
+                key={0}>
+                0
+            </Button>
+        )
         return digits;
     }
 
@@ -52,20 +62,20 @@ function App() {
           <div className="display">
               { result ? <span>{result}</span>: ''} {calc || "0"}
           </div>
-
+        <div className="keypad">
         <div className="operators">
-            <button onClick={() => updateCalc('+')}>+</button>
-            <button onClick={() => updateCalc('-')}>-</button>
+            <Button variant={"contained"} color="success" onClick={() => updateCalc('+')}>+</Button>
+            <Button variant={"contained"} color="success"  onClick={() => updateCalc('-')}>-</Button>
 
-            <button onClick={() => clear()}>Delete</button>
+            <Button variant="contained" color="success" onClick={() => clear()}>C</Button>
         </div>
 
           <div className="digits">
               { createDigits() }
-              <button>0</button>
-              <button onClick={() => calculate()}>=</button>
+              <Button variant={"contained"} onClick={() => calculate()}>=</Button>
           </div>
 
+      </div>
       </div>
     </div>
   );
