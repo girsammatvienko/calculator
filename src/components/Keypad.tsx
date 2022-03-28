@@ -15,7 +15,7 @@ const Keypad: React.FC<KeypadProps> = ({updateCalc, clear, createDigits, calcula
                 createDigits={createDigits}
                 calculate={calculate}/>
         </div>
-            );
+    );
 }
 
 export default Keypad;

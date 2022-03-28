@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "@mui/material/Button";
+import Button from "@mui/material/Button"; //todo unused imports
 import {
     CalculatorProps,
-    DisplayProps,
+    DisplayProps, //todo what do u need this for?
     KeypadProps
 } from "../props/props";
 import Display from "./Display";

@@ -1,12 +1,14 @@
 import React from "react";
-import Button from "@mui/material/Button";
+import Button from "@mui/material/Button"; //todo same thing
 import {DisplayProps} from "../props/props";
 
 
 const Display: React.FC<DisplayProps> = ({result, calc}) => {
-    return (<div className="display">
+    return (
+        <div className="display">
                 { result ? <span>{result}</span>: ''} {calc || "0"}
-            </div>);
+            </div>
+    );
 }
 
 // const Card: React.FC<CardProps> = ({height, width, children, onClick}) => {
