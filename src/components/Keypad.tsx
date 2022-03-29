@@ -3,16 +3,15 @@ import {KeypadProps} from "../props/props";
 import Operators from "./Operators";
 import Digits from "./Digits";
 
-const Keypad: React.FC<KeypadProps> = ({updateCalc, clear, createDigits, calculate}) => {
+const Keypad: React.FC<KeypadProps> = ({operators, updateCalculation, clear, digits, calculate}) => {
     return (
         <div className="keypad">
             <Operators
-                updateCalc={updateCalc}
+                updateCalculation={updateCalculation}
                 clear={clear}
-                />
-
+                operators={operators}/>
             <Digits
-                createDigits={createDigits}
+                digits={digits}
                 calculate={calculate}/>
         </div>
     );

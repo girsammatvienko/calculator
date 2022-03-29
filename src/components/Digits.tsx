@@ -1,12 +1,16 @@
 import React from "react";
-import {DigitsProps, OperatorsProps} from "../props/props";
+import {DigitsProps} from "../props/props";
 import Button from "@mui/material/Button";
 
-const Digits: React.FC<DigitsProps> = ({createDigits, calculate, }) => {
+const Digits: React.FC<DigitsProps> = ({digits, calculate}) => {
     return (
         <div className="digits">
-        { createDigits() }
-        <Button variant={"contained"} onClick={() => calculate()}>=</Button>
+        { digits }
+        <Button
+            variant={"contained"}
+            onClick={() => calculate()}>
+            =
+        </Button>
         </div>
     );
 }

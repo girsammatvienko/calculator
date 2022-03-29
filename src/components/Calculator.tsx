@@ -1,26 +1,57 @@
-import React from "react";
-import Button from "@mui/material/Button"; //todo unused imports
-import {
-    CalculatorProps,
-    DisplayProps, //todo what do u need this for?
-    KeypadProps
-} from "../props/props";
+import React, {useState} from "react";
 import Display from "./Display";
 import Keypad from "./Keypad";
+import Button from "@mui/material/Button";
 
 
-const Calculator: React.FC<CalculatorProps> = ({result, calc, operators, updateCalc, clear, createDigits, calculate}) => {
+const Calculator: React.FC = () => {
+    const digits = [...Array(10).keys()].map(d => {
+        return (
+        <Button
+            variant={"contained"}
+            onClick={() => updateCalculation(d.toString())}>{d}
+        </Button>
+        )
+    })
+
+    const [intermediateValue, setIntermediateValue] = useState("");
+    const [result, setResult] = useState("");
+
+    const operations = ['+', '-'];
+
+    const updateCalculation = (value: string)  => {
+        if (operations.includes(value) && intermediateValue === '' ||
+            operations.includes(value) && operations.includes(intermediateValue.slice(-1))) {
+            return;
+        }
+
+        if (!operations.includes(value)) {
+            setResult(eval(intermediateValue + value).toString());
+        }
+        setIntermediateValue(intermediateValue + value);
+    }
+
+    const calculate = () => {
+        setIntermediateValue(eval(intermediateValue).toString());
+    }
+
+    const clear = () => {
+        setIntermediateValue("");
+        setResult('0');
+    }
+
     return (
         <div className="calculator">
         <Display
-            result={result}
-            calc={calc}/>
+            intermediateValue={intermediateValue}
+            result={result}/>
         <Keypad
-            operators={operators}
-            updateCalc={updateCalc}
+            calculate={calculate}
             clear={clear}
-            createDigits={createDigits}
-            calculate={calculate}/>
+            digits={digits}
+            operators={operations}
+            updateCalculation={updateCalculation}/>
+
     </div>);
 }
 
