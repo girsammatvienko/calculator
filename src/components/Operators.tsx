@@ -4,20 +4,20 @@ import Button from "@mui/material/Button";
 
 const Operators: React.FC<OperatorsProps> = ({operators, updateCalculation, clear}) => {
     return (
-            <div className="operators">
-                {operators.map(operator => {
-                    return (
+        <div className="operators">
+            {operators.map(operator => {
+                return (
                     <Button
                         variant={"contained"}
                         color="success"
                         onClick={() => updateCalculation(`${operator}`)}>
                         {operator}
                     </Button>
-                    )
-                })}
+                )
+            })}
 
-                <Button variant={"contained"} color="success" onClick={() => clear()}>C</Button>
-            </div>
+            <Button variant={"contained"} color="success" onClick={() => clear()}>C</Button>
+        </div>
     );
 }
 

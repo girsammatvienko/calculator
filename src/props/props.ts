@@ -5,20 +5,20 @@ interface DisplayProps {
 
 interface KeypadProps {
     operators: string[];
-    updateCalculation: (value:string) => void;
+    updateCalculation: (value: string) => void;
     clear: () => void;
     digits: JSX.Element[]
     calculate: () => void;
 }
 
 interface OperatorsProps {
-    updateCalculation: (value:string) => void;
+    updateCalculation: (value: string) => void;
     operators: string[]
     clear: () => void;
 }
 
 interface DigitsProps {
-    digits:  JSX.Element[]
+    digits: JSX.Element[]
     calculate: () => void;
 }
 

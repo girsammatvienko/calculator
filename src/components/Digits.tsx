@@ -5,12 +5,12 @@ import Button from "@mui/material/Button";
 const Digits: React.FC<DigitsProps> = ({digits, calculate}) => {
     return (
         <div className="digits">
-        { digits }
-        <Button
-            variant={"contained"}
-            onClick={() => calculate()}>
-            =
-        </Button>
+            {digits}
+            <Button
+                variant={"contained"}
+                onClick={() => calculate()}>
+                =
+            </Button>
         </div>
     );
 }

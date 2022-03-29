@@ -5,8 +5,8 @@ import {DisplayProps} from "../props/props";
 const Display: React.FC<DisplayProps> = ({result, intermediateValue}) => {
     return (
         <div className="display">
-                { result ? <span>{result}</span>: ''} {intermediateValue || "0"}
-            </div>
+            {result ? <span>{result}</span> : ''} {intermediateValue || "0"}
+        </div>
     );
 }
 

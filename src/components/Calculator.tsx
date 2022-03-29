@@ -7,10 +7,10 @@ import Button from "@mui/material/Button";
 const Calculator: React.FC = () => {
     const digits = [...Array(10).keys()].map(d => {
         return (
-        <Button
-            variant={"contained"}
-            onClick={() => updateCalculation(d.toString())}>{d}
-        </Button>
+            <Button
+                variant={"contained"}
+                onClick={() => updateCalculation(d.toString())}>{d}
+            </Button>
         )
     })
 
@@ -19,7 +19,7 @@ const Calculator: React.FC = () => {
 
     const operations = ['+', '-'];
 
-    const updateCalculation = (value: string)  => {
+    const updateCalculation = (value: string) => {
         if (operations.includes(value) && intermediateValue === '' ||
             operations.includes(value) && operations.includes(intermediateValue.slice(-1))) {
             return;
@@ -42,17 +42,17 @@ const Calculator: React.FC = () => {
 
     return (
         <div className="calculator">
-        <Display
-            intermediateValue={intermediateValue}
-            result={result}/>
-        <Keypad
-            calculate={calculate}
-            clear={clear}
-            digits={digits}
-            operators={operations}
-            updateCalculation={updateCalculation}/>
+            <Display
+                intermediateValue={intermediateValue}
+                result={result}/>
+            <Keypad
+                calculate={calculate}
+                clear={clear}
+                digits={digits}
+                operators={operations}
+                updateCalculation={updateCalculation}/>
 
-    </div>);
+        </div>);
 }
 
 export default Calculator;
